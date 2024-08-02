@@ -30,22 +30,34 @@ function App() {
       <MainContext.Provider value={sections}>
         {sections && (
           <>
-            <nav>
-              <img src={logo} alt="" />
-              <ul>
+            <nav className="flex justify-between p-4 items-center border-b border-gray-400 shadow">
+              <img src={logo} alt="" className="w-16 rounded-lg" />
+              <ul className="flex capitalize">
                 {links.map((link) =>
                   link === "home" ? (
-                    <Link to="/">{link}</Link>
+                    <Link
+                      to="/"
+                      className="px-2 py-4 hover:underline hover:bg-gray-100"
+                    >
+                      {link}
+                    </Link>
                   ) : (
-                    <Link to={`/${link}`}>{link}</Link>
+                    <Link
+                      to={`/${link}`}
+                      className="px-2 py-4 hover:underline hover:bg-gray-100"
+                    >
+                      {link}
+                    </Link>
                   )
                 )}
               </ul>
             </nav>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/illustration" element={<Illustration />} />
-            </Routes>
+            <div className="container mx-auto py-4">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/illustration" element={<Illustration />} />
+              </Routes>
+            </div>
           </>
         )}
       </MainContext.Provider>
